@@ -46,29 +46,41 @@ document.body.addEventListener('touchend', function (event) {
 
 
 function handleGesture() {
+  
+  // Calculate the angle of the swipe.
+  let [A1x, A1y, A2x, A2y] = [touchstartX, touchstartY, touchendX, touchstartY];
+  let [B1x, B1y, B2x, B2y] = [touchstartX, touchstartY, touchendX, touchendY];
+
+  var dAx = A2x - A1x;
+  var dAy = A2y - A1y;
+  var dBx = B2x - B1x;
+  var dBy = B2y - B1y;
+
+  var angle = Math.atan2(dAx * dBy - dAy * dBx, dAx * dBx + dAy * dBy);
+  if (angle < 0) {angle = angle * -1;}
+  var degree_angle = angle * (180 / Math.PI);
+
+  //Only very narrow swipe angles qualify as a left or right swipe.
+  if (degree_angle > 10) {
+    return;
+  }
+
+  let distanceX = Math.abs(touchendX - touchstartX);
+  let distanceY = Math.abs(touchendY - touchstartY);
+  if (distanceY > distanceX) return;
+
   if (touchendX < touchstartX) {
     displayItem(newsItems.next());
-    console.log('Swiped Left');
     return;
   }
 
   if (touchendX > touchstartX) {
     displayItem(newsItems.previous());
-    console.log('Swiped Right');
     return;
-  }
-
-  if (touchendY < touchstartY) {
-    console.log('Swiped Up');
-  }
-
-  if (touchendY > touchstartY) {
-    console.log('Swiped Down');
   }
 
   if (touchendY === touchstartY) {
     openItem(newsItems.current());
-    console.log('Tap');
   }
 }
 let newsItems = makePrevNextArray();
