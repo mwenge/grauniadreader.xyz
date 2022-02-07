@@ -88,7 +88,6 @@ function handleGesture() {
 }
 let newsItems = makePrevNextArray();
 const fetchWorker = new Worker("fetch.js");
-fetchWorker.postMessage("1");
 
 hotkeys('left,right,enter', function (event, handler){
   switch (handler.key) {
