@@ -60,8 +60,11 @@ function handleGesture() {
   if (angle < 0) {angle = angle * -1;}
   var degree_angle = angle * (180 / Math.PI);
 
+  console.log(touchstartX, touchendX, touchstartY, touchendY);
+  console.log(degree_angle);
+
   //Only very narrow swipe angles qualify as a left or right swipe.
-  if (degree_angle > 10) {
+  if (degree_angle > 20) {
     return;
   }
 
