@@ -1,0 +1,41 @@
+.section {
+  height: 33%;
+  width: 95%;
+}
+img {
+  max-width: 90%;
+}
+#headline {
+  font-size: 6vh;
+}
+#byline, #dateline {
+  font-size: 1vh;
+}
+#byline {
+  font-weight: bold;
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item {
+  width:50%;
+}
+@media only screen and (max-device-width: 640px) {
+      /* Styles */
+  .item {
+    width:90%;
+  }
+  #headline {
+    font-size: 5vh;
+  }
+  #byline, #dateline {
+    font-size: 2vw;
+  }
+}
+    
+@media only screen and (max-device-width: 768px) {
+      /* Styles */
+}
