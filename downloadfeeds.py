@@ -40,6 +40,11 @@ topics = [
 ]
 #just a random link of a dummy file
 
+# Change the working directory to the locaiton of the script
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
 urls = [ (''.join(l), l[1]) for l in zip(itertools.repeat(prefix), topics, itertools.repeat("/rss"))]
 
 for url, prefix in urls:
