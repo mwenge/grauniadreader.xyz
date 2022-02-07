@@ -4,6 +4,11 @@ import itertools
 import os
 
 output_dir = 'feeds'
+try: 
+    os.makedirs(output_dir)
+except:
+    print("'Feeds' folder already exists")
+
 prefix = "https://www.theguardian.com/"
 topics = [
 'world',
