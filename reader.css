@@ -25,6 +25,9 @@ img {
 }
 @media only screen and (max-device-width: 640px) {
       /* Styles */
+  body {
+    margin-top: 2vh;
+  }
   .item {
     width:90%;
   }
@@ -32,7 +35,7 @@ img {
     font-size: 5vh;
   }
   #byline, #dateline {
-    font-size: 2vw;
+    font-size: 2.75vw;
   }
 }
     
