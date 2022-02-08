@@ -9,6 +9,12 @@ function makePrevNextArray(a = [], start = 0, step = 1) {
       }
       return a[nextIndex]
     },
+    peekNext: function() {
+      if (nextIndex < a.length) {
+        return a[nextIndex + step]
+      }
+      return a[nextIndex]
+    },
     previous: function() {
       if (nextIndex == start)
         return a[nextIndex]
@@ -133,6 +139,12 @@ function displayItem(item) {
   });
   let im = item['media:content'];
   photo.src = htmlDecode(im ? im[1]._attributes.url : "");
+
+  // Cache the next image
+  im = newsItems.peekNext()['media:content'];
+  let tempImg = new Image();
+  tempImg.src = htmlDecode(im ? im[1]._attributes.url : ""); 
+
   window.scrollTo(0,0);
 }
 
