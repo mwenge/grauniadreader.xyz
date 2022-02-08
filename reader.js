@@ -124,6 +124,7 @@ function displayItem(item) {
     d.el.innerHTML = d.it;
   });
   photo.src = htmlDecode(item['media:content'][1]._attributes.url);
+  window.scrollTo(0,0);
 }
 
 function openItem(item) {
