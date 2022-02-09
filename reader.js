@@ -4,13 +4,13 @@ function makePrevNextArray(a = [], start = 0, step = 1) {
 
   const rangeIterator = {
     next: function() {
-      if (nextIndex < a.length) {
+      if (nextIndex < a.length - 1) {
         nextIndex += step;
       }
       return a[nextIndex]
     },
     peekNext: function() {
-      if (nextIndex < a.length) {
+      if (nextIndex < a.length - 1) {
         return a[nextIndex + step]
       }
       return a[nextIndex]
