@@ -6,10 +6,15 @@ img {
   max-width: 90%;
 }
 #headline {
-  font-size: 6vh;
+  font-size: 5vh;
+  margin-bottom: 1vh;
 }
 #byline, #dateline {
   font-size: 1vh;
+}
+#photocredit {
+  font-size: 0.8vh;
+  margin-bottom: 1vh;
 }
 #byline {
   font-weight: bold;
@@ -32,10 +37,13 @@ img {
     width:90%;
   }
   #headline {
-    font-size: 5vh;
+    font-size: 4vh;
   }
   #byline, #dateline {
     font-size: 2.75vw;
+  }
+  #photocredit {
+    font-size: 1vh;
   }
 }
     

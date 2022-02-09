@@ -132,6 +132,7 @@ function displayItem(item) {
     {el: headline, it: item.title},
     {el: text, it: htmlDecode(item.description)},
     {el: byline, it: item['dc:creator']},
+    {el: photocredit, it: (item['media:content']) ? item['media:content'][1]['media:credit'] : ""},
     {el: dateline, it: item.pubDate},
   ];
   display.forEach(d => {
