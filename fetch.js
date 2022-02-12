@@ -42,7 +42,7 @@ function getTopicsUntilDone() {
     return;
   }
   let topic = topics.shift();
-  fetch(prefix + encodeURI(topic.replace(/\//,'')) + '.xml')
+  fetch(prefix + encodeURI(topic.replace(/\//,'')) + '.xml', {cache: "no-store"})
     .then(response => response.text())
     .then(str => {
       let newsItems = txml.parse(str, { noChildNodes: [], simplify: true, filter: getItems});
