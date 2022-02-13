@@ -4,11 +4,13 @@ const sortOrder = [
   'tanzania',
   'world news',
   'tech',
+  'news',
   'books',
   'film',
   'cinema',
   'sport',
   'obituaries',
+  'others',
 ];
 
 function makePrevNextArray(a = [], start = 0, step = 1) {
@@ -50,6 +52,7 @@ function makePrevNextArray(a = [], start = 0, step = 1) {
               break;
             }
         }
+        if (!i.matchedCategory) { i.matchedCategory = 'others'; }
         return i;
       });
 
@@ -80,13 +83,15 @@ function makePrevNextArray(a = [], start = 0, step = 1) {
         return 0;
       }); 
       a.unshift(tip);
-      console.log(a.map(i=> [i.title, i.matchedCategory]));
     },
     length: function() {
       return a.length;
     },
     categories: function() {
       return Array.from(new Set(a.map(i => i.category).flat()));
+    },
+    all: function() {
+      return a;
     },
   };
   return rangeIterator;
