@@ -1,5 +1,10 @@
 import { makePrevNextArray } from "./feed.js";
 
+let touchstartX = null;
+let touchstartY = null;
+let touchendX = null;
+let touchendY = null;
+
 document.body.addEventListener('touchstart', function (event) {
   touchstartX = event.changedTouches[0].screenX;
   touchstartY = event.changedTouches[0].screenY;
