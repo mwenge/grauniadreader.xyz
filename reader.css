@@ -1,3 +1,6 @@
+body {
+  height: 100vh;
+}
 .section {
   height: 33%;
   width: 95%;
@@ -20,7 +23,6 @@ img {
   font-weight: bold;
 }
 .container {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
