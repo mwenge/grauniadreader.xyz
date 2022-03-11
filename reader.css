@@ -1,6 +1,10 @@
 body {
   height: 100vh;
 }
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
 .section {
   height: 33%;
   width: 95%;
@@ -34,6 +38,11 @@ img {
       /* Styles */
   body {
     margin-top: 2vh;
+  }
+  .container {
+    position: absolute;
+    top: 2vh;
+    left: 0;
   }
   .item {
     width:90%;
