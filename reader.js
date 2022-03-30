@@ -8,27 +8,17 @@ let touchendY = null;
 document.body.addEventListener('touchstart', function (event) {
   touchstartX = event.changedTouches[0].screenX;
   touchstartY = event.changedTouches[0].screenY;
-
-  // If they're swiping from the left or right third of the screen
-  // then it's probably a swipe rather than a scroll so disable scrolling
-  // until the touch ends.
-  let section = window.screen.width / 3;
-  let rightMargin = window.screen.width - section;
-  let isSwipe = touchstartX < section || touchstartX > rightMargin;
-  if (isSwipe) {
-    document.body.classList.add("stop-scrolling");
-  }
 }, false);
 
 document.body.addEventListener('touchend', function (event) {
   touchendX = event.changedTouches[0].screenX;
   touchendY = event.changedTouches[0].screenY;
-  document.body.classList.remove("stop-scrolling");
   handleGesture();
 }, false);
 
 
-function calculateAngle() {
+function handleGesture() {
+  
   // Calculate the angle of the swipe.
   let [A1x, A1y, A2x, A2y] = [touchstartX, touchstartY, touchendX, touchstartY];
   let [B1x, B1y, B2x, B2y] = [touchstartX, touchstartY, touchendX, touchendY];
@@ -41,11 +31,7 @@ function calculateAngle() {
   var angle = Math.atan2(dAx * dBy - dAy * dBx, dAx * dBx + dAy * dBy);
   if (angle < 0) {angle = angle * -1;}
   var degree_angle = angle * (180 / Math.PI);
-  return degree_angle;
-}
 
-function handleGesture() {
-  let degree_angle = calculateAngle();
   console.log(touchstartX, touchendX, touchstartY, touchendY);
   console.log(degree_angle);
 
